@@ -36,7 +36,9 @@ function saveToStorage(){
 
     const quantitySelector=document.querySelector(`.js-quantity-selector-${productId}`);
 
-    const quantity = Number(quantitySelector.value);
+    const quantity = quantitySelector
+    ? Number(quantitySelector.value)
+    : 1;
 
     if(matchingItem){
         matchingItem.quantity+=quantity;
@@ -116,4 +118,18 @@ fun();
 
   xhr.open('GET','https://supersimplebackend.dev/cart');
   xhr.send();
+}
+
+
+export async function loadCartFetch() {
+  const response = await fetch('https://supersimplebackend.dev/cart');
+  const text = await response.text();
+  console.log(text);
+  return text;
+}
+
+// Extra feature: make the cart empty after creating an order.
+export function resetCart() {
+  cart = [];
+  saveToStorage();
 }
