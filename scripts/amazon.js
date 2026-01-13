@@ -145,7 +145,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
   document.querySelector('.js-search-button')
     .addEventListener('click', () => {
       const search = document.querySelector('.js-search-bar').value;
-      window.location.href = `amazon.html?search=${search}`;
+      window.location.href = `shophub.html?search=${search}`;
     });
 
 
@@ -154,7 +154,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((button)=>{
     .addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
         const searchTerm = document.querySelector('.js-search-bar').value;
-        window.location.href = `amazon.html?search=${searchTerm}`;
+        window.location.href = `shophub.html?search=${searchTerm}`;
       }
     });
 }
